@@ -3,5 +3,6 @@ __pycache__/
 *.egg-info/
 .venv/
 .idea/
+public/media/
 dist/
 .env
