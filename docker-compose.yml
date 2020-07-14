@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_USER=djanger_user
+        - POSTGRES_DB=djanger
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data
+
+        #  nginx:
+        # image: nginx
+        # ports:
+        # - "80:80"
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    container_name: app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/home/src
+    depends_on:
+      - postgres

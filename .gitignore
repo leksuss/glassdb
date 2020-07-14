@@ -6,3 +6,5 @@ __pycache__/
 public/media/
 dist/
 .env
+docker/postgres/data
+docker/postgres/logs
