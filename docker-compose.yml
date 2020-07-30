@@ -5,10 +5,12 @@ services:
     image: postgres
     container_name: postgres
     restart: always
+    ports:
+        - "5432:5432"
     environment:
-        - POSTGRES_PASSWORD=password
-        - POSTGRES_USER=djanger_user
-        - POSTGRES_DB=djanger
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=djanger_user
+      - POSTGRES_DB=djanger
     volumes:
       - ./docker/postgres/data:/var/lib/postgresql/data
 
