@@ -22,6 +22,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'glasses',
+
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -86,3 +90,12 @@ MEDIA_ROOT = public_root('media')
 MEDIA_URL = env.str('MEDIA_URL', default='/media/')
 STATIC_ROOT = public_root('static')
 STATIC_URL = env.str('STATIC_URL', default='/static/')
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
